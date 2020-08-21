@@ -5,9 +5,15 @@
 A Python program that uses [v4l2loopback](https://github.com/umlaeute/v4l2loopback), [OpenCV](https://opencv.org), and [ffmpeg](https://ffmpeg.org) to use video files as a fake webcam usable in programs like Zoom and Microsoft Teams.
 
 ## Usage
-1. Install the requirements with ``pip install -r requirements.txt``
-2. Run the script with ``python3 main.py [ARGUMENTS]``
+1. Make a new device with ``sudo modprobe v4l2loopback devices=1``
+2. Install the requirements with ``pip install -r requirements.txt``
+3. Run the script with ``python3 main.py [ARGUMENTS]``
 
+``nowebcam.png`` is included for your personal use if you don't have a webcam but a program requires one to use. To use it:
+```shell script
+python3 main.py /dev/video0 -l nowebcam.png
+```
+Replace ``/dev/video0`` with your loopback device. It can be easily found with ``ls /dev/video*``.
 ### Arguments
 This information can also be accessed with the ``-h`` argument.
 ```
