@@ -12,12 +12,19 @@ A Python program that uses [v4l2loopback](https://github.com/umlaeute/v4l2loopba
 This information can also be accessed with the ``-h`` argument.
 ```
 usage: Emulate a webcam through a list of video or image files
-       [-h] video_device input_files [input_files ...]
+       [-h] [--resolution RESOLUTION] [--loop]
+       video_device input_files [input_files ...]
 
 positional arguments:
-  video_device  /dev/video device to write output to
-  input_files   video files to simulate the webcam with
+  video_device          /dev/video device to write output to
+  input_files           video files to simulate the webcam with
 
 optional arguments:
-  -h, --help    show this help message and exit
+  -h, --help            show this help message and exit
+  --resolution RESOLUTION, -r RESOLUTION
+                        resolution of webcam output (default is 1280x720)
+  --loop, -l            replay the files forever as a constant webcam
+
+Process finished with exit code 0
+
 ```
