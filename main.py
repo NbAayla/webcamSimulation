@@ -26,23 +26,25 @@ assert os.path.exists(args.video_device)
 p = Popen(['ffmpeg', '-loglevel', 'panic', '-y', '-f', 'rawvideo', '-pix_fmt', 'bgr24', '-s', args.resolution, '-i',
            '-', '-pix_fmt', 'yuyv422', '-f', 'v4l2', args.video_device], stdin=PIPE)
 
+# Testing for if the input is a single frame
 if len(args.input_files) == 1:
     inputFile = cv2.VideoCapture(args.input_files[0])
-    # cv2.CAP_PROP_FRAME_COUNT doesn't work, so this crude solution will have to work
+    # cv2.CAP_PROP_FRAME_COUNT doesn't work with image files, so this crude solution will have to work
     frames = []
     while inputFile.isOpened():
         ret, frame = inputFile.read()
         if frame is None or len(frames) > 1:
+            # Break if there's more than one frame because that's not a single frame
             break
         frames.append(frame)
     if len(frames) == 1:
         print("Input is a single frame. Storing in memory.")
-        # Store frame in memory
+        # Store frame in memory so it doesn't need to be reprocessed
         frame = cv2.resize(frames[0], (outputRes[0], outputRes[1])).tobytes()
         while True:
-            # Display frame at 1fps
+            # Display frame at 5fps
             p.stdin.write(frame)
-            time.sleep(1)
+            time.sleep(1/5)
 while True:
     for file in args.input_files:
         print(f"Opening file {file}")
