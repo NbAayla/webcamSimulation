@@ -1,4 +1,2 @@
 numpy
-ffmpeg-python
 opencv-python
-pillow
