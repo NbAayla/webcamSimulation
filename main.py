@@ -7,7 +7,7 @@ import time
 
 args = argparse.ArgumentParser("Emulate a webcam through a list of video or image files")
 args.add_argument("video_device", help="/dev/video device to write output to")
-args.add_argument("input_files", nargs="+")
+args.add_argument("input_files", nargs="+", help="video files to simulate the webcam with")
 args = args.parse_args()
 
 # Test that provided videos exist

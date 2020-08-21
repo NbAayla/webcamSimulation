@@ -1,3 +1,5 @@
+[![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/aaylafetzer/webcamSimulation)
 # webcamSimulation
 
 A Python program that uses [v4l2loopback](https://github.com/umlaeute/v4l2loopback), [OpenCV](https://opencv.org), and [ffmpeg](https://ffmpeg.org) to use video files as a fake webcam usable in programs like Zoom and Microsoft Teams.
