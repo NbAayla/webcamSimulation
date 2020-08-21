@@ -24,7 +24,4 @@ optional arguments:
   --resolution RESOLUTION, -r RESOLUTION
                         resolution of webcam output (default is 1280x720)
   --loop, -l            replay the files forever as a constant webcam
-
-Process finished with exit code 0
-
 ```
